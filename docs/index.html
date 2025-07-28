@@ -1,65 +1,73 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Coffee Star Menu</title>
-
-<!-- فونت فارسی از گوگل -->
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
-
-<!-- آیکون‌های Font Awesome -->
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
-
-<!-- فایل استایل جدا -->
-<link rel="stylesheet" href="style.css" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #d7ccc8; /* پس‌زمینه قهوه‌ای روشن */
+    margin: 0;
+    padding: 0;
+    color: #4e342e;
+  }
+  h1 {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  #menu-container img {
+    max-width: 90%;
+    height: auto;
+    margin: 15px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  button {
+    background-color: #6f4e37;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 15px;
+  }
+  button:hover {
+    background-color: #8b5e3c;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>☕ به کافی‌استار خوش آمدید</h1>
-    <p>منوی خوشمزه‌مون رو ببینید و انتخاب کنید!</p>
-  </header>
+  <div>
+    <h1>☕ Hi🖐🏼<br />Welcome to Coffee Star</h1>
+  </div>
 
-  <main>
-    <div id="menu-container">
-      <img
-        id="menu-image"
-        src="20D29986-4D79-92D7-8E2DD10E98AD.jpeg"
-        alt="English Menu"
-      />
-    </div>
+  <div id="menu-container">
+    <img id="menu-image" src="20D29986-496A-4D79-92D7-8E2DD10E98AD.jpeg" alt="English Menu" />
+  </div>
 
-    <button id="switch-btn" onclick="switchMenu()">
-      <i class="fa-solid fa-mug-hot"></i> مشاهده منوی فارسی
-    </button>
-  </main>
+  <button onclick="switchMenu()">مشاهده منوی فارسی</button>
 
-  <script>
-    let englishMenu = "20D29986-4D79-92D7-8E2DD10E98AD.jpeg";
-    let persianMenu = "F4140634-2615-4974-8F58-5083A1DB91F7.jpeg";
-    let showingEnglish = true;
+<script>
+  let englishMenu = "20D29986-496A-4D79-92D7-8E2DD10E98AD.jpeg";
+  let persianMenu = "F4140634-2615-4974-8F58-5083A1DB91F7.jpeg";
+  let showingEnglish = true;
 
-    function switchMenu() {
-      let img = document.getElementById("menu-image");
-      let btn = document.getElementById("switch-btn");
-      if (showingEnglish) {
-        img.src = persianMenu;
-        btn.innerHTML = '<i class="fa-solid fa-mug-hot"></i> View English Menu';
-        showingEnglish = false;
-      } else {
-        img.src = englishMenu;
-        btn.innerHTML = '<i class="fa-solid fa-mug-hot"></i> مشاهده منوی فارسی';
-        showingEnglish = true;
-      }
+  function switchMenu(){
+    let img = document.getElementById("menu-image");
+    if(showingEnglish){
+      img.src = persianMenu;
+      document.querySelector("button").innerText = "View English Menu";
+      showingEnglish = false;
+    } else {
+      img.src = englishMenu;
+      document.querySelector("button").innerText = "مشاهده منوی فارسی";
+      showingEnglish = true;
     }
-
-    window.onload = () => {
-      document.querySelector("#menu-image").classList.add("loaded");
-    };
-  </script>
+  }
+</script>
 </body>
 </html>
-    
